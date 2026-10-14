@@ -1,0 +1,5 @@
+const toggle=document.getElementById('toggle');const nav=document.getElementById('nav');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');toggle.textContent=open?'×':'☰';});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menú');toggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('allyForm').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;const subject=encodeURIComponent('Propuesta de alianza CORPADIL: '+f.elements.type.value);const body=encodeURIComponent('Nombre / organización: '+f.elements.name.value.trim()+'\nCorreo: '+f.elements.email.value.trim()+'\nTipo de vinculación: '+f.elements.type.value+'\n\nPropuesta:\n'+f.elements.message.value.trim());window.location.href='mailto:corpadil@gmail.com?subject='+subject+'&body='+body;});
